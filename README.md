@@ -25,7 +25,6 @@ Here's a quick example to get started:
 
 ```python
 import bod
-# can also do from bod import bod
 import requests
 import logging
 
