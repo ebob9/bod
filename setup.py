@@ -1,19 +1,21 @@
 from setuptools import setup
+from bod import __version__ as bod_version, __license__ as bod_license
 
 with open('README.md') as f:
     long_description = f.read()
 
 setup(name='bod',
-      version='0.0.1a1',
-      description='Blob and Object Dumper',
+      version=bod_version,
+      description='Text Blob and Object Dumper',
       long_description=long_description,
       long_description_content_type='text/markdown',
       url='https://github.com/ebob9/bod',
       author='Aaron Edwards',
       author_email='bod-util@ebob9.com',
-      license='MIT',
+      license=bod_license,
       install_requires=[
-            'beautifulsoup4'
+            'beautifulsoup4',
+            'requests'
       ],
       packages=['bod'],
       classifiers=[
