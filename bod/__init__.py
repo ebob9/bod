@@ -12,7 +12,7 @@ import bs4.formatter as bs_fmt
 from bs4 import GuessedAtParserWarning
 warnings.filterwarnings('ignore', category=GuessedAtParserWarning)
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __copyright__ = "Copyright 2025, Aaron Edwards"
 __license__ = "MIT"
 
