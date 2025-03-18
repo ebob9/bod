@@ -12,7 +12,7 @@ import bs4.formatter as bs_fmt
 from bs4 import GuessedAtParserWarning
 warnings.filterwarnings('ignore', category=GuessedAtParserWarning)
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 __copyright__ = "Copyright 2025, Aaron Edwards"
 __license__ = "MIT"
 
@@ -23,7 +23,11 @@ class CallModule(sys.modules[__name__].__class__):
 
 sys.modules[__name__].__class__ = CallModule
 
-def _bod(data: Any, indent: str | int=4, sort_keys: bool=True, output: Callable[[str], Any]=print) -> str | None:
+def _bod(*args, **kwargs):
+    return dmp(*args, **kwargs)
+
+# actual module
+def dmp(data: Any, indent: str | int=4, sort_keys: bool=True, output: Callable[[str], Any]=print) -> str | None:
     """
     Converts and formats the given data into a human-readable form. This function can handle various types
     of input data including JSON, HTML, bytes, and other Python objects. The formatted output can either
@@ -83,7 +87,7 @@ def _bod(data: Any, indent: str | int=4, sort_keys: bool=True, output: Callable[
         # no output, return the data.
         return final_output
 
-def detailed(data: Any, indent: str | int=4, sort_keys: bool=True, output: Callable[[str], Any]=print,
+def dmpdetail(data: Any, indent: str | int=4, sort_keys: bool=True, output: Callable[[str], Any]=print,
              sensitive: bool=False, sensitive_cookies: list[str] | None=None, sensitive_headers: list[str] | None=None
              ) -> str | None:
     """
@@ -188,3 +192,7 @@ def detailed(data: Any, indent: str | int=4, sort_keys: bool=True, output: Calla
         # no output, return the data.
         return final_output
 
+# aliases
+pretty = dmp
+dump = dmp
+detailed = dmpdetail
